@@ -1,65 +1,60 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <script src="script.js">
-    </script>
-    <script type="application/javascript">
-     function checkData()
-        {
-            var principal_data = document.getElementById("principal").value;
-            var aNumber = parseInt(principal_data);
 
-            if(aNumber <= 0)
-            {
-                alert("Enter a positive number");
-                principal_data.focus();
-                return false;
-            }
-            return true;
-        }
-        </script>
-    <link rel="stylesheet" href="style.css">
-    <title>Simple Interest Calculator</title>
+<!DOCTYPE html>
+    <head>
+        <title>Simple Interest Calculator</title>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="maindiv">
             <h1>Simple Interest Calculator</h1>
-            Principal:
-             <input type="number"  id="principal" onchange="return checkData()">  
-             <br/>
-             Rate:
-            <input type="range" id="rate"  min="1" max="20" step="0.25" value="10.25" onchange="updateRate()" > 
-            <span id="rate_val">
-               "10.25%" 
-            </span>
-            <br/>
-            Years:
-            <select id="years" name="years">
-                <option value="0">Select Years of Loan</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <!-- fill in the rest of the values-->
-            </select>
-             <br/>
-            <button onclick="compute()">Compute Interest</button>
-            <span id="result">
-            </span>
-            <br/>
-           
-           
+
+            <div class="contents">
+                <table id="table">
+                    <tbody>
+                        <tr>
+                            <td class="labels">Amount </td>
+                            <td>
+                                <input type="number" id="principal">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labels">Interest Rate </td>
+                            <td>
+                                <input type="range" min="1" max="20" step="0.25" value="10.25" id="rate" name="rate" onchange="SliderValue()">
+                                <span id="rate_display">10.25%</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="labels">No. of Years</td>
+                            <td>
+                                <select name="years" id="years">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <button id="compute" onclick="compute()">Calculate Interest</button> <br>
+                <span id="result">
+                </span>
+                <footer>
+                    © This Calculator belongs to --Temidayo Folorunsho--
+                </footer>
+            </div>
+
+
         </div>
-    
     </body>
-    <footer>
-        &#169; This Calculator belongs to --Temidayo Folorunsho--
-    </footer>
-   
 </html>
